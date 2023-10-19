@@ -8,8 +8,8 @@ class MainPageCubit extends Cubit<List<BPD9Contacts>> {
   MainPageCubit() : super(<BPD9Contacts>[]);
 
   var kRepo = BPD9ContactsDaoRepo();
-  Future<void> listContacts() async {
-    var list = await kRepo.listContacts();
+  Future<void> getContacts() async {
+    var list = await kRepo.getContacts();
     emit(list);
   }
 
@@ -23,6 +23,6 @@ class MainPageCubit extends Cubit<List<BPD9Contacts>> {
     // sildikten sonra tekrar arayüzü güncellemek için
     // yazmak isek ileride veritabanına bağlayınca
     // silme işlemini yapar ama ekranda anlık göremeyiz
-    await listContacts();
+    await getContacts();
   }
 }

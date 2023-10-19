@@ -18,7 +18,7 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
   @override
   void initState() {
     super.initState();
-    context.read<MainPageCubit>().listContacts();
+    context.read<MainPageCubit>().getContacts();
   }
 
   @override
@@ -60,7 +60,7 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
                     });
                     // Bunu koymaz isek arama yapıldıktan sonra ki kişiler listelenmeye devam eder
                     // arama işlemi bittikten sonra olan tüm kayıtların gelmesi için tekrar listeleme yapıyoruz.
-                    context.read<MainPageCubit>().listContacts();
+                    context.read<MainPageCubit>().getContacts();
                   },
                   icon: Icon(Icons.clear))
               : IconButton(
@@ -93,7 +93,7 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
                                       ))).then((value) {
                             print(
                                 'You came back to Main Page from Detail Page');
-                            context.read<MainPageCubit>().listContacts();
+                            context.read<MainPageCubit>().getContacts();
                           });
                         },
                         leading: Text('${contact.contactId}'),
@@ -143,7 +143,7 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
                   MaterialPageRoute(
                       builder: (context) => BPD9ContactsRegistrationPage()))
               .then((value) {
-            context.read<MainPageCubit>().listContacts();
+            context.read<MainPageCubit>().getContacts();
             print('You came back to Main Page from Registration Page');
           });
         },
