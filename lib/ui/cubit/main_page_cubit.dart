@@ -4,10 +4,10 @@ import 'package:contact_bloc_pattern/data/entity/contacts.dart';
 import 'package:contact_bloc_pattern/data/repo/contacts_dao_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainPageCubit extends Cubit<List<BPD9Contacts>> {
-  MainPageCubit() : super(<BPD9Contacts>[]);
+class MainPageCubit extends Cubit<List<ContactsModel>> {
+  MainPageCubit() : super(<ContactsModel>[]);
 
-  var kRepo = BPD9ContactsDaoRepo();
+  var kRepo = ContactsDaoRepository();
   Future<void> getContacts() async {
     var list = await kRepo.getContacts();
     emit(list);

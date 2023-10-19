@@ -3,16 +3,16 @@ import 'package:contact_bloc_pattern/ui/cubit/detail_page_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BPD9ContactsDetailPage extends StatefulWidget {
-  final BPD9Contacts contact;
+class DetailPage extends StatefulWidget {
+  final ContactsModel contact;
 
-  const BPD9ContactsDetailPage({super.key, required this.contact});
+  const DetailPage({super.key, required this.contact});
 
   @override
-  State<BPD9ContactsDetailPage> createState() => _BPD9ContactsDetailPageState();
+  State<DetailPage> createState() => _DetailPageState();
 }
 
-class _BPD9ContactsDetailPageState extends State<BPD9ContactsDetailPage> {
+class _DetailPageState extends State<DetailPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
 

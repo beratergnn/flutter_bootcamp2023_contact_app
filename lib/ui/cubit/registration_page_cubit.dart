@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RegistrationPageCubit extends Cubit<void> {
   RegistrationPageCubit() : super(0);
 
-  var kRepo = BPD9ContactsDaoRepo();
+  var kRepo = ContactsDaoRepository();
 
   Future<void> save(String contactName, String contactNumber) async {
     await kRepo.save(contactName, contactNumber);

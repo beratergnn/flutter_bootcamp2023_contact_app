@@ -1,7 +1,7 @@
 import 'package:contact_bloc_pattern/data/entity/contacts.dart';
 import 'package:contact_bloc_pattern/sqlite/database_helper.dart';
 
-class BPD9ContactsDaoRepo {
+class ContactsDaoRepository {
   Future<void> save(String contactName, String contactNumber) async {
     var db = await DatabaseHelper.databaseConnection();
 
@@ -28,7 +28,7 @@ class BPD9ContactsDaoRepo {
     print('Update Contact: $contactId $contactName - $contactNumber');
   }
 
-  Future<List<BPD9Contacts>> getContacts() async {
+  Future<List<ContactsModel>> getContacts() async {
     // Veritabanına bağlanmak için.
     var db = await DatabaseHelper.databaseConnection();
 
@@ -40,14 +40,14 @@ class BPD9ContactsDaoRepo {
     // Neden listeye çeviriyoruz çünkü ekranda böyle görüntülüyoruz. Listeden okuma yapıyoruz.
     return List.generate(maps.length, (index) {
       var row = maps[index];
-      return BPD9Contacts(
+      return ContactsModel(
           contactId: row['contact_id'],
           contactName: row['contact_name'],
           contactNumber: row['contact_no']);
     });
   }
 
-  Future<List<BPD9Contacts>> search(String value) async {
+  Future<List<ContactsModel>> search(String value) async {
     // Veritabanına bağlanmak için.
     var db = await DatabaseHelper.databaseConnection();
 
@@ -59,7 +59,7 @@ class BPD9ContactsDaoRepo {
     // Neden listeye çeviriyoruz çünkü ekranda böyle görüntülüyoruz. Listeden okuma yapıyoruz.
     return List.generate(maps.length, (index) {
       var row = maps[index];
-      return BPD9Contacts(
+      return ContactsModel(
           contactId: row['contact_id'],
           contactName: row['contact_name'],
           contactNumber: row['contact_no']);

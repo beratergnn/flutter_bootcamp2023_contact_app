@@ -2,16 +2,14 @@ import 'package:contact_bloc_pattern/ui/cubit/registration_page_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BPD9ContactsRegistrationPage extends StatefulWidget {
-  const BPD9ContactsRegistrationPage({super.key});
+class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({super.key});
 
   @override
-  State<BPD9ContactsRegistrationPage> createState() =>
-      _BPD9ContactsRegistrationPageState();
+  State<RegistrationPage> createState() => _RegistrationPageState();
 }
 
-class _BPD9ContactsRegistrationPageState
-    extends State<BPD9ContactsRegistrationPage> {
+class _RegistrationPageState extends State<RegistrationPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
 

@@ -5,14 +5,14 @@ import 'package:contact_bloc_pattern/ui/views/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BPD9ContactsMainPage extends StatefulWidget {
-  const BPD9ContactsMainPage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<BPD9ContactsMainPage> createState() => _BPD9ContactsMainPageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
+class _MainPageState extends State<MainPage> {
   bool isSearching = false;
 
   @override
@@ -74,7 +74,7 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: BlocBuilder<MainPageCubit, List<BPD9Contacts>>(
+        child: BlocBuilder<MainPageCubit, List<ContactsModel>>(
             builder: (context, snapshot) {
           if (snapshot.isNotEmpty) {
             return ListView.builder(
@@ -88,7 +88,7 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BPD9ContactsDetailPage(
+                                  builder: (context) => DetailPage(
                                         contact: contact,
                                       ))).then((value) {
                             print(
@@ -138,10 +138,8 @@ class _BPD9ContactsMainPageState extends State<BPD9ContactsMainPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => BPD9ContactsRegistrationPage()))
+          Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegistrationPage()))
               .then((value) {
             context.read<MainPageCubit>().getContacts();
             print('You came back to Main Page from Registration Page');
